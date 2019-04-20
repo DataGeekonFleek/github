@@ -1,5 +1,5 @@
 
-    var myMap = L.map('map-id').setView([32, -96], 4);
+    var myMap = L.map('map-id').setView([37.8, -96], 4);
 
 
     L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -10,35 +10,21 @@
 
 L.geoJson(statesData).addTo(myMap);
 
-
-/* var target_count={};
-d3.json('Target_Counts.json', function(data) { 
-    target_count=data;
-    new_data = target_count.map(td=>{var tmp={}; tmp[td.State]=td.Target; return tmp;})
-    console.log(new_data);
-}); */
-
-
-/* var Station_count={};
-$.getJSON('Station_Counts.json', function(data) { 
-    //Station_Counts=data;
-    console.log(data);
-}); */
-
 function getColor(d) {
     console.log(d);
-    return d > 99  ? '#9D0F0F' :
-           d > 74  ? '#FD8D3C' :
-           d > 49   ? '#FEB24C' :
-           d > 24   ? '#FED976' :
+    return d > 1000 ? '#800026' :
+           d > 500  ? '#BD0026' :
+           d > 200  ? '#E31A1C' :
+           d > 100  ? '#FC4E2A' :
+           d > 50   ? '#FD8D3C' :
+           d > 20   ? '#FEB24C' :
+           d > 10   ? '#FED976' :
                       '#FFEDA0';
 }
 
-
-
-function style(color) {
+function style(feature) {
     return {
-        fillColor: getColor(color.properties.density),
+        fillColor: getColor(feature.properties.density),
         weight: 2,
         opacity: 1,
         color: 'white',
@@ -63,8 +49,6 @@ function highlightFeature(e) {
         layer.bringToFront();
     }
 }
-
-
 
 // Function to reset on mouseout
 function resetHighlight(e) {
@@ -100,8 +84,8 @@ info.onAdd = function (Map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>Country Radio Stations</h4>' +  (props ?
-        '<b>' + props.name + '</b><br />' + props.density + ' Country Radio Stations'
+    this._div.innerHTML = '<h4>US Radio Stations</h4>' +  (props ?
+        '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
         : 'Hover over a state');
 };
 
@@ -117,23 +101,3 @@ function resetHighlight(e) {
     info.update();
 }
 
-
-var legend = L.control({position: 'topright'});
-
-legend.onAdd = function (map) {
-
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 24, 49, 74, 99],
-        labels = [];
-
-    // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
-
-    return div;
-};
-
-legend.addTo(myMap);

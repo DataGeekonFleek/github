@@ -72,8 +72,6 @@ function zoomToFeature(e) {
     myMap.fitBounds(e.target.getBounds());
 }
 
-
-
 // Function to call the Mouseover, Mouseout and Zoom in on Click
 function onEachFeature(feature, layer) {
     layer.on({
@@ -104,9 +102,6 @@ info.update = function (props) {
 };
 
 info.addTo(myMap);
-
-// Add Marker 
-L.marker([29.8, 95.4]).addTo(map);
 
 function highlightFeature(e) {
     var layer = e.target;

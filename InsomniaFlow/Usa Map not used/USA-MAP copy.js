@@ -34,8 +34,6 @@ function getColor(d) {
                       '#FFEDA0';
 }
 
-
-
 function style(color) {
     return {
         fillColor: getColor(color.properties.density),
@@ -64,8 +62,6 @@ function highlightFeature(e) {
     }
 }
 
-
-
 // Function to reset on mouseout
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
@@ -75,6 +71,8 @@ function resetHighlight(e) {
 function zoomToFeature(e) {
     myMap.fitBounds(e.target.getBounds());
 }
+
+
 
 // Function to call the Mouseover, Mouseout and Zoom in on Click
 function onEachFeature(feature, layer) {
@@ -117,23 +115,21 @@ function resetHighlight(e) {
     info.update();
 }
 
-
 var legend = L.control({position: 'topright'});
 
 legend.onAdd = function (map) {
 
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 24, 49, 74, 99],
-        labels = [];
+   var div = L.DomUtil.create('div', 'info legend'),
+       grades = [0, 24, 49, 74, 99],
+       labels = [];
 
-    // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
+   // loop through our density intervals and generate a label with a colored square for each interval
+   for (var i = 0; i < grades.length; i++) {
+       div.innerHTML +=
+           '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+           grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+   }
 
-    return div;
+   return div;
 };
-
 legend.addTo(myMap);
