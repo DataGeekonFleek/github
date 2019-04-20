@@ -1,0 +1,340 @@
+<!--formatted small screen positioning -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+<!-- Insert title here -->
+
+  <title>Country Music in the US</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+
+
+
+  <!-- reset css -->
+
+  <link rel="stylesheet" href="reset.css">
+
+  <!-- Bring in our bootstrap stylesheet -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+ 
+ <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+  <link rel="stylesheet" href="styles.css">
+     <script src="bubble_Texas.js"></script>
+    <script src="bubble_TN.js"></script>
+    <script src="bubble_Florida.js"></script>
+    <script src="bubble_Kentucky.js"></script>
+    <script src="Pie_fl.js"></script>
+    <script src="Pie_tx.js"></script>
+    <script src="Pie_ky.js"></script>
+    <script src="Pie_tn.js"></script>
+    
+    <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css">
+
+      
+</head>
+
+
+
+<body>
+
+  <!-- D3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+
+  <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="css/style.css"> 
+
+
+
+     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+    <!-- A black horizontal navbar that becomes vertical on small screens -->
+
+    <nav class="navbar navbar-expand-sm navbar-dark">
+
+        <a class="nav-link" href="index.html"> <!-- button which links to index that seems to only appear when size is shrunk -->
+
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"> </span>
+
+            </button>
+
+        </a>
+
+        <ul class="navbar-nav">
+
+            <!-- Home button -->
+
+            <li class="nav-item active">
+
+                <a class="nav-link" href="index.html">  
+
+                US Overview</a>
+
+            </li>
+
+        </ul>
+
+
+
+        <!-- right side of navbar -->
+
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item dropdown ml-auto">
+
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" href="#" role="button" 
+
+                aria-haspopup="true" aria-expanded="false">Target States</a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+
+                    <a class="dropdown-item" href="Florida.html">Florida</a>
+
+                    <a class="dropdown-item" href="Kentucky.html">Kentucky</a>
+
+                    <a class="dropdown-item" href="Tennessee.html">Tennessee</a>
+
+                    <a class="dropdown-item" href="Texas.html">Texas</a>
+
+                </div>
+
+            </li> 
+
+ 
+
+            <li class="nav-item dropdown ml-auto">
+
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" href="#" role="button" 
+
+                aria-haspopup="true" aria-expanded="false">Data</a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+
+                    <a class="dropdown-item" href="Data_pg.html">Census data</a>
+
+                    <a class="dropdown-item" href="Radio_data.html">Radio station data</a>
+
+
+                </div>
+
+            </li> 
+
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- Main Body: Twitter bootstrap -->
+
+    <div style="background-color:white;">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+
+                </br> <!-- line break to push header down -->
+
+            </div>
+
+        </div>
+
+    </div> <!-- background color -->
+
+        <!-- Opening Text -->
+
+    <div class = 'container' >
+
+        <div class="row align-items-center" style="border: .5px solid white" >
+
+
+            <div class="box col-md-12">
+
+                <h1><center> Where will this Country Lifestyle Brand launch its new cowboy denim product?</center></h1>
+                <p class="intro" >Lifestyle brand needs to promote in a place with our core country enthusiasts, with the right segment of consumers not just for today but for the future of the company as well. We will recommend the best place to start your advertisement placement based on enthusiasm for country music and regional demographics <font color="#9D0F0F">Red shaded states have 100+ country stations (Target States)</font></p>
+
+
+            </div>
+
+        </div>
+
+        <hr> 
+
+        <!-- map container -->
+
+        <div class="row" style="border: .5px solid white">
+            <h4>Which states have the most country stations?</h4> 
+        </br></br>
+        <!-- Our US map will go here -->
+            <div id="map-id" class="col-md-12" style="height:550px;"> this is map</div>
+            <p><font color="#9D0F0F">Red shaded states have 100+ country stations (Target States)</font></p>
+        </div>
+
+   
+
+
+
+    <!-- Visualizations -->
+
+        <!-- Header -->
+
+    <div id = "bottom_visual" class="container"> 
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                </br> <!-- line break to push header down -->
+
+            </div>
+
+        </div>
+
+        <hr> <!-- horizontal line -->
+
+
+
+        <!-- Header content for visualization section -->
+
+        <div class="row aligncenter">
+
+            <div class = 'col-md-3'></br></br></br></div>
+
+            <div class="col-md-6">
+
+                <h3 id="bot_header">Demographics on Target States</h3>
+
+            </div>
+
+            <div class = 'col-md-3'></br></br></br></div>
+
+        </div>
+
+
+        <div class="row aligncenter">
+
+            <div class="col-md-3 aligncenter">
+
+                <a href="Tennessee.html">
+
+                    <img src="TN.PNG"
+
+                    alt = "Tennessee" height="50" width="75">
+
+                </a>
+
+            </div>
+
+            <div class="col-md-3 aligncenter">
+
+                <a href="Florida.html">
+
+                        <img src="FL.PNG"
+
+                        alt = "Florida" height="50" width="75">
+
+                </a>
+
+            </div>
+
+            <div class="col-md-3 aligncenter">
+
+                <a href="Texas.html">
+
+                    <img src="TX.PNG"
+
+                    alt = "Texas" height="50" width="75">
+
+                </a>
+
+            </div>
+
+            <div class="col-md-3 aligncenter">
+
+                <a href="Kentucky.html">
+
+                        <img src="Kentucky.PNG"
+
+                        alt = "Kentucky" height="50" width="75">
+
+                </a>
+                
+            </div>
+
+        </div>
+    
+    
+
+        <hr>
+
+        <!-- reference to github and my github page -->
+
+        <p> 
+
+            This page is hosted on Github. &emsp;
+
+            <a target="_blank" href="https://github.com/nancyculley/Medium-Data">
+
+                Web page repo link.
+
+            </a> &emsp;
+
+            
+
+            <a target="_blank" href="https://github.com/nancyculley/">See more projects here!</a>
+
+            &emsp; Contact: Medium Data
+
+        </p> 
+
+       
+
+    </div>
+</div>
+
+  <!-- API Key -->
+  <script type="text/javascript" src="config.js"></script>
+  <!-- Our JavaScript -->
+  
+  <script type="text/javascript" src="https://leafletjs.com/examples/choropleth/us-states.js"></script>
+  <script type="text/javascript" src="StateData.js"></script>
+  <script type="text/javascript" src="USA-MAP.js"></script>
+
+
+</body>
+
+</html>
